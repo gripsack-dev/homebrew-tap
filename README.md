@@ -1,7 +1,7 @@
 # gripsack-dev/homebrew-tap
 
 [![test](https://github.com/gripsack-dev/homebrew-tap/actions/workflows/test.yml/badge.svg)](https://github.com/gripsack-dev/homebrew-tap/actions/workflows/test.yml)
-[![brew install gripsack-dev/tap/gripsack](https://img.shields.io/badge/brew-gripsack--dev%2Ftap%2Fgripsack-fbb040?logo=homebrew)](https://github.com/gripsack-dev/homebrew-tap)
+[![brew install "gripsack-dev/tap/gripsack"](https://img.shields.io/badge/brew-gripsack--dev%2Ftap%2Fgripsack-fbb040?logo=homebrew)](https://github.com/gripsack-dev/homebrew-tap)
 
 <img src="logo.svg" width="480" alt="gripsack tap logo — the gripsack traveler's bag with the homebrew mug peeking out">
 
@@ -10,7 +10,7 @@ environment in one bag. Packages from any source plus your dotfiles,
 with generations and rollback.
 
 ```
-brew install gripsack-dev/tap/gripsack
+brew install "gripsack-dev/tap/gripsack"
 ```
 
 The formula builds from the crates.io source crate, so macOS
