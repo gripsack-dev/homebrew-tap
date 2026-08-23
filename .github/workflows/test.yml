@@ -1,0 +1,43 @@
+name: test
+
+# Tap CI: style + audit + build-from-source + formula test, on macOS
+# (arm64) and Linux. Weekly cron catches bit rot (new rust/brew
+# releases breaking the source build) even with no pushes.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1"
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: Homebrew/actions/setup-homebrew@main
+
+      - name: Tap this repo locally
+        run: |
+          tapdir="$(brew --repository gripsack-dev/tap)"
+          mkdir -p "$(dirname "$tapdir")"
+          ln -sfn "$PWD" "$tapdir"
+          brew tap | grep gripsack-dev/tap
+
+      - name: Style
+        run: brew style gripsack-dev/tap
+
+      - name: Audit
+        run: brew audit --new --formula gripsack-dev/tap/gripsack
+
+      - name: Install from source
+        run: brew install --verbose --build-from-source gripsack-dev/tap/gripsack
+
+      - name: Test
+        run: brew test gripsack-dev/tap/gripsack
