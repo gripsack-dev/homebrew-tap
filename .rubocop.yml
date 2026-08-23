@@ -1,0 +1,5 @@
+# brew style's rubocop scans the README and parses "gripsack-dev" as
+# arithmetic (Lint/AmbiguousOperatorPrecedence) — exclude it.
+AllCops:
+  Exclude:
+    - "README.md"
