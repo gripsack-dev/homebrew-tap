@@ -1,8 +1,8 @@
 class Gripsack < Formula
   desc "Your whole environment in one bag"
   homepage "https://gripsack.dev"
-  url "https://static.crates.io/crates/gripsack/gripsack-0.5.0.crate"
-  sha256 "88a33f3ac5cb6aceead02bba8ec0929948c2eab007dfb5144f09bc90ef3ac017"
+  url "https://static.crates.io/crates/gripsack/gripsack-0.5.1.crate"
+  sha256 "858f0b4d2cafbb9704727f13dc874fa7a6678e76407eafcf07c911d2481acace"
   license "MIT"
 
   depends_on "rust" => :build
