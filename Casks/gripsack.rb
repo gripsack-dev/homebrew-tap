@@ -1,8 +1,8 @@
 cask "gripsack" do
-  version "0.17.8"
+  version "0.17.9"
 
   arch arm: "aarch64", intel: "x86_64"
-  sha256 arm: "02b4dae93792f6f9b5cfeca335f383f2c5dcd1aa70dced120d161c8df379b331", intel: "9de342be76c1cc4ef60c4d8241360599d9564a863a19c3d1adc513fd231dd44f"
+  sha256 arm: "fb57c68229443d20e561ac1fc796c3820cf431fdefd752b3c0e8d2742e670ba4", intel: "6c8f32a3efa2a97773ec9e2e9904ba59ecd34625bfee622758abdd18c729cef7"
 
   url "https://github.com/gripsack-dev/gripsack/releases/download/core-v#{version}/gripsack-#{version}-#{arch}-apple-darwin.tar.gz"
   name "gripsack"
