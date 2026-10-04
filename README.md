@@ -13,12 +13,18 @@ with generations and rollback.
 brew install "gripsack-dev/tap/gripsack"
 ```
 
-The formula builds from the crates.io source crate, so macOS
-(arm64 + x86_64) and Linux both work. Version + checksum bumps are
-automated by gripsack's release workflow.
+The formula builds from the published crates.io source crate, currently
+**0.44.1**. This Linux-first patch was installed and executed from crates.io in
+a fresh Linux container; fresh native Homebrew/macOS qualification is not claimed.
+Version + checksum bumps normally come from gripsack's release workflow.
 
-Trust notes: CI runs `brew style`, `brew audit --new`, a full
-build-from-source install, and `brew test` on every change (and weekly)
-on both macOS and Linux — see the badge above. There is no official
-"verified tap" program; a green, public CI run against every commit is
-the strongest signal a tap can offer.
+The macOS binary cask deliberately remains at **0.43.0**: no 0.44.1 macOS core
+tarballs were published. Keep a compatible `@gripsack/core` SDK when retaining an
+older core. The 0.44.1 Linux-first release does not qualify the Mac VM worker or
+full coherent Mac Conda runtime.
+
+Standing CI is configured for `brew style`, `brew audit --new`, a full
+build-from-source install, and `brew test` on changes and weekly, on macOS and
+Linux. Fresh hosted CI was owner-waived for the 0.44.1 local publication; an older
+green badge is not qualification of this update. There is no official
+"verified tap" program.
