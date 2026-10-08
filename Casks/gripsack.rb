@@ -9,5 +9,7 @@ cask "gripsack" do
   desc "your whole environment in one bag"
   homepage "https://gripsack.dev"
 
+  disable! date: "2026-10-08", because: "macOS support has ended; gripsack supports Linux and WSL only"
+
   binary "gripsack-#{version}-#{arch}-apple-darwin/grip", target: "grip"
 end
