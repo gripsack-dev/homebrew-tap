@@ -1,8 +1,8 @@
 name: test
 
-# Tap CI: style + audit + build-from-source + formula test, on macOS
-# (arm64) and Linux. Weekly cron catches bit rot (new rust/brew
-# releases breaking the source build) even with no pushes.
+# Tap CI: style + audit + build-from-source + formula test, on Linux.
+# Weekly cron catches bit rot (new rust/brew releases breaking the
+# source build) even with no pushes.
 on:
   workflow_dispatch:
   push:
@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v7
@@ -37,7 +37,7 @@ jobs:
         run: brew audit --new --formula gripsack-dev/tap/gripsack
 
       - name: Install from source
-        run: brew install --verbose --build-from-source gripsack-dev/tap/gripsack
+        run: brew install --verbose --build-from-source --formula gripsack-dev/tap/gripsack
 
       - name: Test
         run: brew test gripsack-dev/tap/gripsack

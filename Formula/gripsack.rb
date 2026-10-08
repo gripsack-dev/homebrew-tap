@@ -5,6 +5,7 @@ class Gripsack < Formula
   sha256 "f2a704d8442449e71e3970b88db500b34c9688e063c0365555bb8a5cd929ac7f"
   license "MIT"
 
+  depends_on :linux
   depends_on "rust" => :build
 
   def install
